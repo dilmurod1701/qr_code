@@ -1,0 +1,46 @@
+{% extends 'generator/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block heading %}
+    <title>QrCode</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: yellow;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        #button {
+            position: relative;
+            left: 67%;
+            top: 30px;
+            font-size: 18px;
+        }
+    </style>
+
+{% endblock heading %}
+
+{% block content %}
+    <h1>WiFi QR code</h1>
+    <form class="forms" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+    <button type="button" class="btn btn-primary" id="button">Generate qrcode</button>
+    </form>
+
+
+{% endblock content %}
